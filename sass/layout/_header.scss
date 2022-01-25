@@ -1,0 +1,37 @@
+.header {
+  grid-column: full-start / full-end;
+
+  &__background {
+    height: 100%;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba($color-primary-light, 0.7),
+        rgba($color-primary-dark, 0.7)
+      ),
+      url("img/img-01.webp");
+    background-size: cover;
+
+    @include flex-center;
+    @include border-radius;
+  }
+
+  &__title {
+    color: white;
+    line-height: 1;
+    font-weight: 400;
+
+    &--main {
+      display: block;
+      font-size: 13rem;
+      text-align: center;
+      // letter-spacing: 5px;
+    }
+
+    &--sub {
+      display: block;
+      font-size: 2.5rem;
+      text-align: center;
+      // letter-spacing: 2px;
+    }
+  }
+}
