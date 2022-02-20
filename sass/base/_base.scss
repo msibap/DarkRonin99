@@ -1,12 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  transition: all 0.2s ease;
 }
 
 *,
 *::after,
 *::before {
   box-sizing: inherit;
+  transition: all 0.2s ease;
 }
 
 html {
@@ -16,19 +18,17 @@ html {
 }
 
 body {
-  font-family: "Yekan", tahoma, sans-serif;
+  font-family: "Roboto", sans-serif;
+  background-color: $color-dark;
+  color: $color-light;
   display: grid;
+  font-size: 2rem;
   grid-template-columns:
     [full-start] 1fr [center-start] repeat(
-      8,
+      6,
       [col-start] minmax(min-content, 14rem) [col-end]
     )
-    [center-end] 1fr [full-end sidebar-start] $sidebar-width [sidebar-end];
-  grid-template-rows: 6rem calc(90vh - 6rem) 40vh auto;
-  grid-gap: 2px;
-  background-color: $color-tertiary;
-  padding: 2rem;
-
-  // min-height: 100vh;
-  // border: 2rem solid $color-tertiary;
+    [center-end] 1fr [full-end];
+  grid-template-rows: 6rem calc(90vh - 6rem) 1fr minmax(40rem, max-content) 80rem;
+  min-height: 100vh;
 }

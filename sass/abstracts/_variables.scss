@@ -1,10 +1,11 @@
-$color-primary: #3e8914;
-$color-primary-light: #96e072;
-$color-primary-dark: #134611;
+$color-primary: #d90429;
+$color-secondary: #ef233c;
+$color-tertiary: #8d99ae;
 
-$color-secondary: #3da35d;
+$color-light: #edf2f4;
+$color-dark: #212121;
 
-$color-tertiary: #e8fccf;
-$color-bg-dark: #32373d;
-
-$sidebar-width: 23rem;
+:root {
+  --bgcolor-primary: #d90429;
+  --bgcolor-secondary: #212121;
+}
