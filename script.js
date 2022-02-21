@@ -1,5 +1,7 @@
 "use strict";
 
+const topbar = document.querySelector(".topbar");
+const topbarLogo = document.querySelector(".topbar__logo");
 const mainBackground = document.querySelector(".background");
 const slider = document.querySelector(".background__slider");
 const counters = document.querySelectorAll(".records__container__counter");
@@ -151,5 +153,23 @@ function showText() {
   if (window.scrollY + 250 > mastiffSectionTop && !showTextComplete) {
     writeText();
     showTextComplete = true;
+  }
+}
+
+////////////////////////////////////////
+// Top Bar Effect //////////////////////
+////////////////////////////////////////
+
+window.addEventListener("scroll", topbarEffect);
+
+function topbarEffect() {
+  const topbarTop = topbar.getBoundingClientRect().top;
+
+  if (window.scrollY > topbar.offsetHeight + 10) {
+    topbar.classList.add("active");
+    topbarLogo.classList.remove("glitch");
+  } else {
+    topbar.classList.remove("active");
+    topbarLogo.classList.add("glitch");
   }
 }
