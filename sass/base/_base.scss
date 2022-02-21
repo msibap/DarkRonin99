@@ -29,6 +29,6 @@ body {
       [col-start] minmax(min-content, 14rem) [col-end]
     )
     [center-end] 1fr [full-end];
-  grid-template-rows: 6rem calc(90vh - 6rem) 1fr minmax(40rem, max-content) 80rem;
+  grid-template-rows: 8rem calc(90vh - 8rem) 1fr minmax(40rem, max-content) 80rem;
   min-height: 100vh;
 }
