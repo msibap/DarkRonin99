@@ -688,36 +688,34 @@ body {
           transform: translateX(2px);
 }
 
-.test {
+.mastiff {
   grid-column: full-start / full-end;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 3fr;
+      grid-template-columns: 2fr 3fr;
+  -ms-grid-rows: max-content 1fr;
+      grid-template-rows: -webkit-max-content 1fr;
+      grid-template-rows: max-content 1fr;
   color: #212121;
-  background-image: linear-gradient(100deg, #edf2f4 10%, rgba(237, 242, 244, 0.7) 50%, transparent 50%), url("images/mastiff.webp");
+  background-image: linear-gradient(100deg, #edf2f4 20%, rgba(237, 242, 244, 0.7) 50%, transparent 50%), url("images/mastiff.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
   padding: 4rem;
 }
 
-.test__text {
-  max-width: 40%;
+.mastiff__title {
+  font-family: "SlopeOpera";
+  font-size: 6rem;
+  text-transform: capitalize;
 }
 
-.test__text--title {
-  font-size: 4rem;
-}
-
-.test__text--subtitle {
-  text-align: justify;
+.mastiff__subtitle {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/ 3;
 }
 
 .nothing {
