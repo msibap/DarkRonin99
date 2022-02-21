@@ -163,8 +163,6 @@ function showText() {
 window.addEventListener("scroll", topbarEffect);
 
 function topbarEffect() {
-  const topbarTop = topbar.getBoundingClientRect().top;
-
   if (window.scrollY > topbar.offsetHeight + 10) {
     topbar.classList.add("active");
     topbarLogo.classList.remove("glitch");
