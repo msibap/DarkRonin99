@@ -140,10 +140,20 @@
   background-attachment: fixed;
   padding: 4rem;
 
+  @media screen and (max-width: 770px) {
+    background-image: linear-gradient(to right, rgba($color-light, 0.7)),
+      url("images/mastiff.webp");
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
   &__title {
     font-family: "SlopeOpera";
     font-size: 6rem;
     text-transform: capitalize;
+    @media screen and (max-width: 770px) {
+      font-size: 5rem;
+    }
   }
   &__subtitle {
     grid-row: 2/ 3;
