@@ -4,6 +4,9 @@ const mainBackground = document.querySelector(".background");
 const slider = document.querySelector(".background__slider");
 const counters = document.querySelectorAll(".records__container__counter");
 const containers = document.querySelectorAll(".records__container");
+const mastiffTitle = document.querySelector(".mastiff__title");
+const mastiffSubtitle = document.querySelector(".mastiff__subtitle");
+const mastiffSection = document.querySelector(".mastiff");
 
 const images = [
   " url(images/img-1.webp)",
@@ -109,3 +112,44 @@ counters.forEach((counter) => {
     }
   }
 });
+
+////////////////////////////////////////
+// Text Animation //////////////////////
+////////////////////////////////////////
+
+let textIndex = 1;
+let titleMastiff = "Mastiff";
+let textMastiff = `Auto-Loading shotgun with wide spread.
+  The M1901 Mastiff Combat Shotgun is a Pilot anti-personnel energy semi-automatic shotgun manufactured by Lastimosa Armory.`;
+
+function writeText() {
+  let controller = true;
+  mastiffTitle.innerText = titleMastiff.slice(0, textIndex);
+  mastiffSubtitle.innerText = textMastiff.slice(0, textIndex);
+
+  textIndex++;
+
+  if (textIndex <= textMastiff.length && controller) {
+    setTimeout(writeText, 30);
+  } else {
+    controller = false;
+  }
+
+  // if (textIndex <= textMastiff.length && controller) {
+  // } else {
+  //   controller = false;
+  // }
+
+  console.log(mastiffTitle.innerText);
+}
+
+window.addEventListener("scroll", showText);
+let showTextComplete = false;
+const mastiffSectionTop = mastiffSection.getBoundingClientRect().top;
+
+function showText() {
+  if (window.scrollY + 250 > mastiffSectionTop && !showTextComplete) {
+    writeText();
+    showTextComplete = true;
+  }
+}
