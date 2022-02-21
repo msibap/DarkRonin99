@@ -112,18 +112,22 @@
     &__counters {
       display: flex;
     }
+
     .pie-chart {
       transform: translateX(2px);
     }
   }
 }
 
-.test {
+.mastiff {
   grid-column: full-start / full-end;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: max-content 1fr;
   color: $color-dark;
   background-image: linear-gradient(
       100deg,
-      rgba($color-light, 1) 10%,
+      rgba($color-light, 1) 20%,
       rgba($color-light, 0.7) 50%,
       transparent 50%
     ),
@@ -132,17 +136,14 @@
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: left;
   padding: 4rem;
-  &__text {
-    max-width: 40%;
-    &--title {
-      font-size: 4rem;
-    }
-    &--subtitle {
-      text-align: justify;
-    }
+
+  &__title {
+    font-family: "SlopeOpera";
+    font-size: 6rem;
+    text-transform: capitalize;
+  }
+  &__subtitle {
+    grid-row: 2/ 3;
   }
 }
