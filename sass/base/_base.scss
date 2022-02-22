@@ -8,13 +8,13 @@
 *::after,
 *::before {
   box-sizing: inherit;
-  transition: all 0.2s ease;
 }
 
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1rem = 10px (10px/16px = 62.5%)
   cursor: default;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -29,6 +29,11 @@ body {
       [col-start] minmax(min-content, 14rem) [col-end]
     )
     [center-end] 1fr [full-end];
-  grid-template-rows: 8rem calc(90vh - 8rem) 1fr minmax(40rem, max-content) 80rem;
+  grid-template-rows:
+    8rem calc(90vh - 8rem) 1fr minmax(40rem, max-content) minmax(
+      50rem,
+      max-content
+    )
+    80rem;
   min-height: 100vh;
 }
