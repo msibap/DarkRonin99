@@ -808,6 +808,8 @@ body {
   padding: 1rem;
   background-color: rgba(33, 33, 33, 0.7);
   color: #edf2f4;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .characters__character__text--subtitle {
