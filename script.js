@@ -136,13 +136,6 @@ function writeText() {
   } else {
     controller = false;
   }
-
-  // if (textIndex <= textMastiff.length && controller) {
-  // } else {
-  //   controller = false;
-  // }
-
-  console.log(mastiffTitle.innerText);
 }
 
 window.addEventListener("scroll", showText);
