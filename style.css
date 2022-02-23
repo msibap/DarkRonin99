@@ -845,6 +845,7 @@ body {
   .characters__character {
     height: 40rem;
     border: 0;
+    border-right: 0 !important;
     border-top: 4px solid #edf2f4;
   }
   .characters__character:last-child {

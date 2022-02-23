@@ -248,6 +248,7 @@
     @media screen and (max-width: 770px) {
       height: 40rem;
       border: 0;
+      border-right: 0 !important;
       border-top: 4px solid $color-light;
       &:last-child {
         border-bottom: 4px solid $color-light;
