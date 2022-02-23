@@ -9,6 +9,16 @@ const containers = document.querySelectorAll(".records__container");
 const mastiffTitle = document.querySelector(".mastiff__title");
 const mastiffSubtitle = document.querySelector(".mastiff__subtitle");
 const mastiffSection = document.querySelector(".mastiff");
+const characters = document.querySelectorAll(".characters__character");
+const characterBgs = document.querySelectorAll(
+  ".characters__character__background"
+);
+const characterSubtitles = document.querySelectorAll(
+  ".characters__character__text--subtitle"
+);
+const characterTitles = document.querySelectorAll(
+  ".characters__character__text--title"
+);
 
 const images = [
   " url(images/img-1.webp)",
@@ -164,3 +174,15 @@ function topbarEffect() {
     topbarLogo.classList.add("glitch");
   }
 }
+
+////////////////////////////////////////
+// Character's Click Effect ////////////
+////////////////////////////////////////
+
+characters.forEach((character, idx) => {
+  character.addEventListener("click", () => {
+    characterBgs[idx].classList.toggle("active");
+    characterSubtitles[idx].classList.toggle("active");
+    characterTitles[idx].classList.toggle("active");
+  });
+});
