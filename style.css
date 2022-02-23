@@ -618,6 +618,46 @@ body {
   margin: 6rem 0;
 }
 
+@media screen and (max-width: 560px) {
+  .records {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0;
+    margin-top: 1rem;
+  }
+}
+
+.records__title {
+  font-family: "SlopeOpera";
+  grid-column: 1 / -1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  background-color: #edf2f4;
+  color: #212121;
+  width: 100%;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  padding: 1rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 560px) {
+  .records__title {
+    height: 7rem;
+  }
+}
+
 .records__container {
   display: -ms-grid;
   display: grid;
@@ -633,14 +673,30 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
   gap: 1rem;
   border-radius: 10px;
   padding: 4rem 2rem;
   opacity: 0;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
+}
+
+@media screen and (max-width: 560px) {
+  .records__container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    border-radius: 0;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (max-content)[3];
+        grid-template-rows: repeat(3, -webkit-max-content);
+        grid-template-rows: repeat(3, max-content);
+  }
 }
 
 .records__container:hover {
@@ -654,6 +710,8 @@ body {
 }
 
 .records__container__icon {
+  -ms-grid-column-align: center;
+      justify-self: center;
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1 / 2;
@@ -665,10 +723,29 @@ body {
   height: 4rem;
 }
 
+@media screen and (max-width: 560px) {
+  .records__container__icon {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1 / 2;
+  }
+}
+
 .records__container__counters {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+@media screen and (max-width: 560px) {
+  .records__container__counters {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .records__container .pie-chart {
@@ -766,6 +843,11 @@ body {
 @media screen and (max-width: 770px) {
   .characters__character {
     height: 40rem;
+    border: 0;
+    border-top: 4px solid #edf2f4;
+  }
+  .characters__character:last-child {
+    border-bottom: 4px solid #edf2f4;
   }
 }
 
@@ -844,11 +926,6 @@ body {
           filter: contrast(1.1) brightness(30%);
 }
 
-.characters__character__background.subzero {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(135, 206, 235, 0.2))), url("images/img-6.webp");
-  background-image: linear-gradient(rgba(135, 206, 235, 0.2)), url("images/img-6.webp");
-}
-
 .characters__character__background.scorpion {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 215, 0, 0.2))), url("images/img-7.webp");
   background-image: linear-gradient(rgba(255, 215, 0, 0.2)), url("images/img-7.webp");
@@ -857,6 +934,11 @@ body {
 .characters__character__background.skarlet {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(220, 20, 60, 0.2))), url("images/img-5.webp");
   background-image: linear-gradient(rgba(220, 20, 60, 0.2)), url("images/img-5.webp");
+}
+
+.characters__character__background.subzero {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(135, 206, 235, 0.2))), url("images/img-6.webp");
+  background-image: linear-gradient(rgba(135, 206, 235, 0.2)), url("images/img-6.webp");
 }
 
 .nothing {
@@ -875,7 +957,6 @@ body {
           align-items: center;
   font-family: "SlopeOpera", sans-serif;
   background-color: #d90429;
-  font-size: 3rem;
   padding: 0 2rem;
   height: 8rem;
   width: 100%;
@@ -912,6 +993,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  font-size: 3rem;
 }
 
 .topbar__logo a {
