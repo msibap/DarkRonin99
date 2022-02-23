@@ -654,6 +654,7 @@ body {
 
 @media screen and (max-width: 560px) {
   .records__title {
+    font-size: 2.5rem;
     height: 7rem;
   }
 }
