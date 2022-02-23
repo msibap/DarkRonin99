@@ -8,7 +8,7 @@
   align-items: center;
   font-family: "SlopeOpera", sans-serif;
   background-color: $color-primary;
-  font-size: 3rem;
+
   padding: 0 2rem;
   height: 8rem;
   width: 100%;
@@ -34,6 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 3rem;
 
     & a {
       text-decoration: none;
