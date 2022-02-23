@@ -736,16 +736,17 @@ body {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
+  .characters #skarlet {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
 }
 
 .characters__character {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -756,10 +757,10 @@ body {
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  -webkit-transition: all 20s ease-in-out;
-  transition: all 20s ease-in-out;
   border-top: 4px solid #edf2f4;
   border-bottom: 4px solid #edf2f4;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 @media screen and (max-width: 770px) {
@@ -773,14 +774,8 @@ body {
 }
 
 .characters__character:hover .characters__character__text--title {
-  border: 3px solid #edf2f4;
   background-color: #edf2f4;
   color: #212121;
-}
-
-.characters__character:hover .characters__character__text--subtitle {
-  height: 100%;
-  opacity: 1;
 }
 
 .characters__character__text {
@@ -802,14 +797,17 @@ body {
 .characters__character__text--title {
   font-family: "SlopeOpera";
   text-align: center;
-  z-index: 10;
-  border: 3px solid transparent;
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: rgba(33, 33, 33, 0.7);
   color: #edf2f4;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+.characters__character__text--title.active {
+  background-color: #edf2f4;
+  color: #212121;
 }
 
 .characters__character__text--subtitle {
@@ -819,48 +817,46 @@ body {
   opacity: 0;
 }
 
-.characters__character::before {
-  content: "";
+.characters__character__text--subtitle.active {
+  height: 100%;
+  opacity: 1;
+}
+
+.characters__character__background {
   position: absolute;
   width: 100%;
   height: 100%;
   background-position: center;
   background-size: cover;
-  -webkit-filter: brightness(100%);
-          filter: brightness(100%);
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  background-repeat: no-repeat;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  -webkit-filter: contrast(1.1) brightness(1.1);
-          filter: contrast(1.1) brightness(1.1);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-filter: contrast(1.1) brightness(100%);
+          filter: contrast(1.1) brightness(100%);
 }
 
-.characters__character:hover::before {
-  -webkit-filter: brightness(30%);
-          filter: brightness(30%);
+.characters__character__background.active {
   -webkit-transform: scale(1);
           transform: scale(1);
+  -webkit-filter: contrast(1.1) brightness(30%);
+          filter: contrast(1.1) brightness(30%);
 }
 
-.characters__character.scorpion::before {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 215, 0, 0.2))), url("images/img-7.webp");
-  background-image: linear-gradient(rgba(255, 215, 0, 0.2)), url("images/img-7.webp");
-}
-
-.characters__character.skarlet::before {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(220, 20, 60, 0.2))), url("images/img-5.webp");
-  background-image: linear-gradient(rgba(220, 20, 60, 0.2)), url("images/img-5.webp");
-}
-
-.characters__character.subzero::before {
+.characters__character__background.subzero {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(135, 206, 235, 0.2))), url("images/img-6.webp");
   background-image: linear-gradient(rgba(135, 206, 235, 0.2)), url("images/img-6.webp");
 }
 
-.characters__character.masterchief::before {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 255, 0, 0.2))), url("images/img-4.webp");
-  background-image: linear-gradient(rgba(0, 255, 0, 0.2)), url("images/img-4.webp");
+.characters__character__background.scorpion {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 215, 0, 0.2))), url("images/img-7.webp");
+  background-image: linear-gradient(rgba(255, 215, 0, 0.2)), url("images/img-7.webp");
+}
+
+.characters__character__background.skarlet {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(220, 20, 60, 0.2))), url("images/img-5.webp");
+  background-image: linear-gradient(rgba(220, 20, 60, 0.2)), url("images/img-5.webp");
 }
 
 .nothing {
