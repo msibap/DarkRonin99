@@ -181,6 +181,14 @@ function topbarEffect() {
 
 characters.forEach((character, idx) => {
   character.addEventListener("click", () => {
+    for (let i = 0; i < characters.length; i++) {
+      if (i !== idx) {
+        characterBgs[i].classList.remove("active");
+        characterSubtitles[i].classList.remove("active");
+        characterTitles[i].classList.remove("active");
+      }
+    }
+
     characterBgs[idx].classList.toggle("active");
     characterSubtitles[idx].classList.toggle("active");
     characterTitles[idx].classList.toggle("active");
