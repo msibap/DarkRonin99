@@ -490,6 +490,27 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
+.slider__container__dots {
+  margin: 1rem;
+  padding: 0.3rem 0.5rem;
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.slider__container__dots__dot {
+  margin: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+}
+.slider__container__dots__dot.active {
+  background-color: white;
+}
 
 .records {
   grid-column: center-start/center-end;

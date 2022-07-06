@@ -6,6 +6,7 @@ const slider = document.querySelector(".slider__images");
 const sliderImages = document.querySelectorAll(".slider__images__image");
 const nextBtn = document.getElementById("next-btn");
 const prevBtn = document.getElementById("prev-btn");
+const dotsContainer = document.querySelector(".slider__container__dots");
 const counters = document.querySelectorAll(".records__container__counter");
 const containers = document.querySelectorAll(".records__container");
 const mastiffTitle = document.querySelector(".mastiff__title");
@@ -28,18 +29,26 @@ const characterTitles = document.querySelectorAll(
 
 // Current active slide
 let counter = 1;
+const time = 3000;
+let timer;
 
 // Initial size of the image
 const size = sliderImages[0].clientWidth;
 
-// Move the image by width of an image
+// Move the image by width of first image
 const changeImage = function () {
   slider.style.transform = `translateX(${-size * counter}px)`;
 };
 
+// Reseting timer
+const timerReset = function () {
+  clearInterval(timer);
+  startTimer();
+};
+
 // Moving slides smoothly
 const transitImage = function () {
-  slider.style.transition = `transform 0.4s ease-in-out`;
+  slider.style.transition = `transform 0.4s ease-out`;
 };
 
 // Initial slide position
@@ -51,6 +60,8 @@ const nextImage = function () {
   counter++;
   transitImage();
   changeImage();
+  activeDot();
+  timerReset();
 };
 
 const prevImage = function () {
@@ -59,6 +70,8 @@ const prevImage = function () {
   counter--;
   transitImage();
   changeImage();
+  activeDot();
+  timerReset();
 };
 
 slider.addEventListener("transitionend", () => {
@@ -66,17 +79,69 @@ slider.addEventListener("transitionend", () => {
     slider.style.transition = `none`;
     counter = sliderImages.length - 2;
     changeImage();
+    activeDot();
   }
   if (sliderImages[counter].id === "first-image") {
     slider.style.transition = `none`;
     counter = sliderImages.length - counter;
     changeImage();
+    activeDot();
   }
 });
 
 // Buttons funcionality
 nextBtn.addEventListener("click", nextImage);
 prevBtn.addEventListener("click", prevImage);
+
+// Creating Dots
+const createDots = function () {
+  // Deleting hard-coded Dots
+  dotsContainer.innerHTML = "";
+  // Making a new array without first and last copy images
+  const uniqueSliderImages = [...sliderImages].slice(1, -1);
+  uniqueSliderImages.forEach((e) => {
+    dotsContainer.insertAdjacentHTML(
+      "afterbegin",
+      '<div class="slider__container__dots__dot"></div>'
+    );
+  });
+};
+
+createDots();
+
+// Saving new created dots into a variable
+const dots = document.querySelectorAll(".slider__container__dots__dot");
+
+// Active dot
+const activeDot = function () {
+  // Making an Array of dots
+  const dotsArray = [...dots];
+  dotsArray.forEach((e, i) => {
+    e.classList.remove("active");
+    if (i + 1 === counter) {
+      e.classList.add("active");
+    }
+  });
+};
+activeDot();
+
+// Selecting dots by mouse
+dots.forEach((e, i) => {
+  e.addEventListener("click", () => {
+    counter = i + 1;
+    changeImage();
+    transitImage();
+    activeDot();
+    timerReset();
+  });
+});
+
+// Setting a Timer for auto-slide
+function startTimer() {
+  timer = setInterval(nextImage, time);
+}
+
+startTimer();
 
 ////////////////////////////////////////
 // Old Slider //////////////////////////
