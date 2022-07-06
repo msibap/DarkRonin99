@@ -45,7 +45,7 @@
   &__slider {
     position: absolute;
     background-color: rgba($color-dark, 0.5);
-    border: 2px solid $color-light;
+    // border: 2px solid $color-light;
     border-radius: 10px;
     padding: 0.5rem 1rem;
     margin: 1rem;
@@ -55,19 +55,16 @@
     z-index: 10;
 
     &__dot {
+      background-color: rgba($color-light, 0.4);
       width: 1.5rem;
       height: 1.5rem;
       margin: 0.5rem 1rem;
       border-radius: 50%;
-      outline: 3px solid $color-light;
-      border: 3px solid transparent;
       cursor: pointer;
       transition: all 0.5s ease-in-out;
-      border-spacing: 10px;
 
       &.active {
-        background-color: $color-light;
-        border: 3px solid $color-dark;
+        background-color: rgba($color-light, 1);
       }
     }
   }
@@ -317,15 +314,27 @@
       }
 
       &.scorpion {
-        background-image: linear-gradient(rgba(gold, 0.2)),
+        background-image: linear-gradient(
+            to bottom right,
+            transparent,
+            rgba(gold, 0.5)
+          ),
           url("images/img-7.webp");
       }
       &.skarlet {
-        background-image: linear-gradient(rgba(crimson, 0.2)),
+        background-image: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(crimson, 0.5)
+          ),
           url("images/img-5.webp");
       }
       &.subzero {
-        background-image: linear-gradient(rgba(skyblue, 0.2)),
+        background-image: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(skyblue, 0.5)
+          ),
           url("images/img-6.webp");
       }
     }
