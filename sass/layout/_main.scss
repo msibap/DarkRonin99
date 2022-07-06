@@ -15,59 +15,76 @@
 // Background Stylings /////////////////////
 ////////////////////////////////////////////
 
-.background {
+.slider {
   grid-column: full-start / full-end;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 100%;
-  width: 100%;
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
+  justify-self: center;
+  align-self: center;
   position: relative;
-  transition: all 0.5s ease;
-  filter: contrast(1.1) brightness(1.1);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
 
-  // &::after {
-  //   content: "";
-  //   position: absolute;
-  //   height: 100%;
-  //   width: 100%;
-  //   background-image: linear-gradient(
-  //     to bottom right,
-  //     rgba($color-primary, 0.45),
-  //     rgba($color-dark, 0.45)
-  //   );
-  //   backdrop-filter: grayscale(100%);
-  // }
-
-  &__slider {
-    position: absolute;
-    background-color: rgba($color-dark, 0.5);
-    // border: 2px solid $color-light;
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
+  &__images {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
 
-    &__dot {
-      background-color: rgba($color-light, 0.4);
-      width: 1.5rem;
-      height: 1.5rem;
-      margin: 0.5rem 1rem;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.5s ease-in-out;
-
-      &.active {
-        background-color: rgba($color-light, 1);
-      }
+    &__image {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
     }
   }
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    &__btn {
+      width: 4rem;
+      height: 4rem;
+      margin: 1rem;
+
+      background: none;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-family: inherit;
+      font-size: 2rem;
+      background-color: rgba(black, 0.4);
+      cursor: pointer;
+    }
+  }
+
+  // &__dot-container {
+  //   position: absolute;
+  //   background-color: rgba($color-dark, 0.5);
+  //   // border: 2px solid $color-light;
+  //   border-radius: 10px;
+  //   padding: 0.5rem 1rem;
+  //   margin: 1rem;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   z-index: 10;
+
+  //   &__dot {
+  //     background-color: rgba($color-light, 0.4);
+  //     width: 1.5rem;
+  //     height: 1.5rem;
+  //     margin: 0.5rem 1rem;
+  //     border-radius: 50%;
+  //     cursor: pointer;
+  //     transition: all 0.5s ease-in-out;
+
+  //     &.active {
+  //       background-color: rgba($color-light, 1);
+  //     }
+  //   }
+  // }
 }
 
 ////////////////////////////////////////////

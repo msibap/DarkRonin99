@@ -2,8 +2,10 @@
 
 const topbar = document.querySelector(".topbar");
 const topbarLogo = document.querySelector(".topbar__logo");
-const mainBackground = document.querySelector(".background");
-const slider = document.querySelector(".background__slider");
+const slider = document.querySelector(".slider__images");
+const sliderImages = document.querySelectorAll(".slider__images__image");
+const nextBtn = document.getElementById("next-btn");
+const prevBtn = document.getElementById("prev-btn");
 const counters = document.querySelectorAll(".records__container__counter");
 const containers = document.querySelectorAll(".records__container");
 const mastiffTitle = document.querySelector(".mastiff__title");
@@ -20,6 +22,67 @@ const characterTitles = document.querySelectorAll(
   ".characters__character__text--title"
 );
 
+////////////////////////////////////////
+// New Slider //////////////////////////
+////////////////////////////////////////
+
+// Current active slide
+let counter = 1;
+
+// Initial size of the image
+const size = sliderImages[0].clientWidth;
+
+// Move the image by width of an image
+const changeImage = function () {
+  slider.style.transform = `translateX(${-size * counter}px)`;
+};
+
+// Moving slides smoothly
+const transitImage = function () {
+  slider.style.transition = `transform 0.4s ease-in-out`;
+};
+
+// Initial slide position
+changeImage();
+
+const nextImage = function () {
+  // Prevents from fast clicking Next button
+  if (counter >= sliderImages.length - 1) return;
+  counter++;
+  transitImage();
+  changeImage();
+};
+
+const prevImage = function () {
+  // Prevents from fast clicking Prev button
+  if (counter <= 0) return;
+  counter--;
+  transitImage();
+  changeImage();
+};
+
+slider.addEventListener("transitionend", () => {
+  if (sliderImages[counter].id === "last-image") {
+    slider.style.transition = `none`;
+    counter = sliderImages.length - 2;
+    changeImage();
+  }
+  if (sliderImages[counter].id === "first-image") {
+    slider.style.transition = `none`;
+    counter = sliderImages.length - counter;
+    changeImage();
+  }
+});
+
+// Buttons funcionality
+nextBtn.addEventListener("click", nextImage);
+prevBtn.addEventListener("click", prevImage);
+
+////////////////////////////////////////
+// Old Slider //////////////////////////
+////////////////////////////////////////
+
+/* 
 const images = [
   " url(images/img-1.webp)",
   " url(images/img-2.webp)",
@@ -83,6 +146,7 @@ function startTimer() {
 }
 
 startTimer();
+*/
 
 ////////////////////////////////////////
 // Number Increment Animation //////////
