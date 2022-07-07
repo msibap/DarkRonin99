@@ -36,18 +36,26 @@ let timer;
 let size = sliderImages[0].clientWidth;
 
 // Update size after resizing window
-const updateSize = function () {
-  if (size != sliderImages[0].clientWidth) size = sliderImages[0].clientWidth;
+const fixSize = function () {
+  // If window size changes, will get the new window size
+  if (size != sliderImages[0].clientWidth) {
+    size = sliderImages[0].clientWidth;
+    changeImage();
+    resetTimer();
+  }
+};
+
+const checkSize = function () {
+  const timer = setInterval(fixSize, 1000);
 };
 
 // Move the image by width of first image
 const changeImage = function () {
-  updateSize();
   slider.style.transform = `translateX(${-size * counter}px)`;
 };
 
 // Reseting timer
-const timerReset = function () {
+const resetTimer = function () {
   clearInterval(timer);
   startTimer();
 };
@@ -67,7 +75,7 @@ const nextImage = function () {
   transitImage();
   changeImage();
   activeDot();
-  timerReset();
+  resetTimer();
 };
 
 const prevImage = function () {
@@ -77,7 +85,7 @@ const prevImage = function () {
   transitImage();
   changeImage();
   activeDot();
-  timerReset();
+  resetTimer();
 };
 
 slider.addEventListener("transitionend", () => {
@@ -138,15 +146,17 @@ dots.forEach((e, i) => {
     changeImage();
     transitImage();
     activeDot();
-    timerReset();
+    resetTimer();
   });
 });
 
 // Setting a Timer for auto-slide
-function startTimer() {
+const startTimer = function () {
   timer = setInterval(nextImage, time);
-}
+};
 
+// Checks size every 1 second
+checkSize();
 startTimer();
 
 ////////////////////////////////////////
@@ -316,13 +326,15 @@ function topbarEffect() {
 
 characters.forEach((character, idx) => {
   character.addEventListener("click", () => {
-    for (let i = 0; i < characters.length; i++) {
-      if (i !== idx) {
-        characterBgs[i].classList.remove("active");
-        characterSubtitles[i].classList.remove("active");
-        characterTitles[i].classList.remove("active");
-      }
-    }
+    [...characterBgs].forEach((e, i) => {
+      if (i !== idx) e.classList.remove("active");
+    });
+    [...characterSubtitles].forEach((e, i) => {
+      if (i !== idx) e.classList.remove("active");
+    });
+    [...characterTitles].forEach((e, i) => {
+      if (i !== idx) e.classList.remove("active");
+    });
 
     characterBgs[idx].classList.toggle("active");
     characterSubtitles[idx].classList.toggle("active");
