@@ -33,10 +33,16 @@ const time = 3000;
 let timer;
 
 // Initial size of the image
-const size = sliderImages[0].clientWidth;
+let size = sliderImages[0].clientWidth;
+
+// Update size after resizing window
+const updateSize = function () {
+  if (size != sliderImages[0].clientWidth) size = sliderImages[0].clientWidth;
+};
 
 // Move the image by width of first image
 const changeImage = function () {
+  updateSize();
   slider.style.transform = `translateX(${-size * counter}px)`;
 };
 
