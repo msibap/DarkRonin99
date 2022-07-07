@@ -92,17 +92,21 @@ body {
   align-items: center;
 }
 .slider__container__btn {
-  width: 4rem;
-  height: 4rem;
-  margin: 1rem;
   background: none;
   border: none;
+}
+.slider__container__btn svg {
+  width: 5rem;
+  height: 5rem;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 2px black;
   border-radius: 50%;
-  color: white;
-  font-family: inherit;
-  font-size: 2rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  fill: rgba(255, 255, 255, 0.6);
+  margin: 1rem;
   cursor: pointer;
+}
+.slider__container__btn svg:hover {
+  fill: white;
 }
 .slider__container__dots {
   margin: 1rem;
@@ -117,12 +121,18 @@ body {
   margin: 0.5rem;
   width: 2rem;
   height: 2rem;
+  border: 2px solid transparent;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  transition: all 0.4s ease-in;
+  transition: all 0.4s ease;
+}
+.slider__container__dots__dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
 }
 .slider__container__dots__dot.active {
+  border: 2px solid white;
   background-color: white;
 }
 
