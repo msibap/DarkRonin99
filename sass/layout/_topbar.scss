@@ -16,6 +16,9 @@
   z-index: 20;
   border-bottom: 2px solid transparent;
   border-top: 2px solid transparent;
+  @media screen and (max-width: 560px) {
+    padding: 0;
+  }
 
   &.active {
     background-color: rgba($color-dark, 0.5);
